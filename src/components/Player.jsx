@@ -1,3 +1,4 @@
+import { usePlayerStore } from "@store/playerStore";
 import { useEffect, useRef, useState } from "react";
 
 export const Pause = ({ className }) => (
@@ -10,14 +11,12 @@ export const Play = ({ className }) => (
 
 export function Player() {
 
-    const [isPlaying, setIsPlaying] = useState(false);
+    const { isPlaying, setIsPlaying } = usePlayerStore(state => state);
     const [currentSong, setCurrentSong] = useState(null);
     const audioRef = useRef()
 
     useEffect(() => {
-        // if (currentSong) {
-            audioRef.current.src = `/music/1/01.mp3`;
-        // }
+        audioRef.current.src = `/music/1/01.mp3`;
     }, []);
 
     const handleClick = () => {
@@ -45,6 +44,7 @@ export function Player() {
                     <button className="bg-white rounded-full p-2" onClick={handleClick}>
                         {isPlaying ? <Pause /> : <Play />}
                     </button>
+                    <audio ref={audioRef} />
                 </div>
             </div>
 
@@ -52,7 +52,6 @@ export function Player() {
                 Volume
             </div>
 
-            <audio ref={audioRef} />
 
         </div>
     );

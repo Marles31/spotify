@@ -17,9 +17,14 @@
       ],
       "@pages/*": [
         "src/pages/*"
+      ],
+      "@store/*": [
+        "src/store/*"
       ]
     },
+
     "jsx": "react-jsx",
     "jsxImportSource": "react"
+    
   }
 }
