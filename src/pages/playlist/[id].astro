@@ -51,13 +51,9 @@ const playlistSongs = songs.filter((song) => song.albumId === playlist?.albumId)
             </div>
 
         </header>
-
-        <div class="pl-6 pt-6">
-            <CardPlayButton id={id} client:load size="large" />
-        </div>
-
+        
         <div class="relative z-10 px-6 pt-10">
-            
+            <CardPlayButton id={id} client:load size="large" />
         </div>
 
         <div
